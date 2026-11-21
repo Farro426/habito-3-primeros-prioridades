@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="color-scheme" content="light">
+<title>Hábito 3 · Poner lo primero, primero | EAE Barcelona</title>
+<style>
+:root{--eae:#ef2737;--black:#151515;--ink:#242424;--white:#fff;--paper:#f6f6f6;--line:#d7d7d7;--grey:#777;--green:#287a51;--palegreen:#e8f2ec;--palered:#f9e9eb;--pale:#eee}
+*{box-sizing:border-box}html{color-scheme:light}body{margin:0;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px);background:#ececec;color:var(--ink);font:16px/1.48 Arial,Helvetica,sans-serif}
+header{background:var(--eae);color:white;padding:17px clamp(18px,5vw,60px);display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:12px;font-size:23px;font-weight:900;letter-spacing:-1px}.brand small{display:block;font-size:13px;font-weight:700;line-height:1.05;letter-spacing:0}
+header .meta{font-size:12px;text-align:right;opacity:.95}
+main{max-width:1180px;margin:26px auto 55px;padding:0 17px}
+.hero{background:var(--eae);color:white;border-radius:4px;padding:clamp(26px,5vw,54px);position:relative;overflow:hidden;box-shadow:0 5px 20px #0001}
+.hero:after{content:"03";position:absolute;right:4%;top:-40px;font-size:210px;font-weight:900;color:#ffffff14;pointer-events:none}
+.eyebrow{text-transform:uppercase;letter-spacing:.13em;font-size:12px;color:var(--eae);font-weight:800}.hero .eyebrow{color:white;opacity:.85}
+h1{font-size:clamp(34px,5.2vw,58px);line-height:1.02;margin:14px 0;max-width:760px;letter-spacing:-1.4px}
+.hero p{font-size:18px;max-width:750px;margin:0;color:#fff}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:23px}.pill{border:1px solid #ffffff8c;color:white;padding:6px 10px;font-size:12px;font-weight:700;border-radius:2px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}.tab{background:white;color:var(--black);border:1px solid #ccc;padding:12px 17px;border-radius:2px;font-weight:800;cursor:pointer}.tab.active{background:var(--black);color:white;border-color:var(--black)}
+.panel{background:white;border:1px solid #ddd;border-top:5px solid var(--eae);padding:clamp(20px,4vw,36px);box-shadow:0 7px 22px #0000000d}
+h2{font-size:clamp(24px,3vw,34px);line-height:1.1;margin:0 0 8px;color:var(--black)}h3{margin:0 0 7px;color:var(--black)}.lead{color:var(--grey);margin:0 0 22px}
+button{font:inherit}.primary{background:var(--eae);color:white;border:0;padding:12px 18px;font-weight:800;cursor:pointer;border-radius:2px}.primary:disabled{opacity:.4;cursor-not-allowed}.secondary{background:white;color:var(--black);border:1px solid #999;padding:10px 14px;font-weight:700;border-radius:2px;cursor:pointer}
+button:focus-visible,[draggable=true]:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+.hidden{display:none!important}.progress{height:7px;background:#e5e5e5;margin:18px 0;overflow:hidden}.progress>div{height:100%;width:0;background:var(--eae);transition:width .25s}
+.question{font-size:20px;font-weight:800;margin:20px 0 16px;max-width:900px}.choices{display:grid;gap:10px}
+.choice{background:white;text-align:left;border:1px solid #cfcfcf;padding:14px 16px;color:var(--black);cursor:pointer;border-radius:2px}.choice:hover,.choice.selected{border-color:var(--eae);background:#fff8f8}
+.choices[data-done="1"] .choice:not(.selected){opacity:.5;cursor:default}.choices[data-done="1"] .choice{pointer-events:none}.tabhint{margin:-8px 0 16px;color:#555;font-size:14px}.feedback{min-height:30px;color:var(--green);font-weight:700;margin:12px 0}.result{background:var(--black);color:white;padding:21px;margin-top:20px;border-left:6px solid var(--green)}.result strong{display:block;color:white;font-size:24px;margin:6px 0}.result p{margin:9px 0;color:#eee}.result .eyebrow{color:#ff7d88}
+.split{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}.brief{background:var(--paper);padding:17px;border-left:4px solid var(--eae)}
+.challengebar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:var(--black);color:white;padding:12px 15px;margin:16px 0}.challengebar strong{color:white}.taskbank{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0 18px}
+.task{display:flex;align-items:flex-start;gap:10px;text-align:left;background:#fafafa;border:1px solid #d3d3d3;padding:13px;color:var(--black);cursor:grab;min-height:92px;border-radius:2px}.task:hover,.task.selected{border:2px solid var(--eae);padding:12px}.task.sorted{background:#f3f3f3;opacity:.78;cursor:default}.task .tasknum{background:var(--black);color:white;min-width:26px;height:26px;display:grid;place-items:center;font-size:12px;font-weight:800}.task .tasktext{font-weight:600;font-size:14px}.task .state{display:block;color:var(--green);font-size:11px;font-weight:800;margin-top:6px}
+.matrix{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}.quad{min-height:155px;padding:13px;background:#f7f7f7;border:2px dashed #bbb}.quad h3{font-size:15px;margin-bottom:4px}.quad p{font-size:12px;margin:0 0 9px;color:#666}.quad.over{border-color:var(--eae);background:#fff5f6}.quad.q2{background:var(--palegreen);border-color:#a9c6b3}.quad.q3{background:var(--palered)}.placedchip{display:inline-block;background:white;border:1px solid #ccc;padding:6px 8px;margin:4px 4px 0 0;font-size:12px;color:var(--black)}
+.scenario{background:var(--paper);border:1px solid #ddd;padding:17px;margin:13px 0}.scenario h3{font-size:19px}.scenario p{margin:7px 0 14px}.scenario .hint{font-size:13px;color:var(--grey);font-style:italic}.scenarioCount{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--grey);font-size:13px;font-weight:700}
+.reflection{background:var(--black);color:white;padding:18px 20px;margin-top:16px}.reflection strong{color:#ff7d88}.reflection p{margin:6px 0 0}
+footer{text-align:center;color:#777;font-size:12px;padding:20px}
+@media(max-width:720px){header{align-items:flex-start;flex-direction:column}.meta{text-align:left!important}.tabs{display:grid;grid-template-columns:1fr 1fr}.tab{padding:11px 8px}.split,.taskbank,.matrix{grid-template-columns:1fr}.quad{min-height:125px}.hero:after{font-size:130px;top:0}}
+@media print{body{background:white}header,.tabs,.primary,.secondary,footer{display:none!important}.panel{box-shadow:none}.result{break-inside:avoid}}
+</style>
+</head>
+<body>
+<header><div class="brand"><span style="font-size:30px">EAE</span><small>Business School<br>Barcelona</small></div><div class="meta">Máster de Recursos Humanos<br>Liderazgo, Team Building y Coaching</div></header>
+<main>
+<section class="hero">
+ <div class="eyebrow">Hábito 3 · Gerencia personal</div>
+ <h1>Poner lo primero,<br>primero.</h1>
+ <p>Aprende a distinguir lo urgente de lo importante, proteger tus prioridades y responder a las interrupciones con criterio y asertividad.</p>
+ <div class="pills"><span class="pill">01 Diagnóstico</span><span class="pill">02 Matriz de prioridades</span><span class="pill">03 Asertividad</span></div>
+</section>
+<nav class="tabs" aria-label="Dinámicas">
+ <button class="tab active" data-tab="diagnostico">1 · Diagnóstico</button>
+ <button class="tab" data-tab="matriz">2 · Prioridades</button>
+ <button class="tab" data-tab="asertividad">3 · Interrupciones</button>
+</nav>
+<p class="tabhint">Sigue la presentación: abre cada pestaña cuando se indique en clase.</p>
+
+<section class="panel" id="diagnostico">
+ <h2>El diagnóstico del reloj vs. la brújula</h2><p class="lead">Cinco situaciones. Elige la respuesta que mejor describa lo que haces de verdad. Las preguntas y las opciones se presentan en orden aleatorio.</p>
+ <div class="progress"><div id="quizProgress"></div></div>
+ <div id="quizArea"><div class="eyebrow" id="qCounter">PREGUNTA 1 DE 5</div><div class="question" id="qText"></div><div class="choices" id="qChoices"></div><div class="feedback" id="qFeedback" aria-live="polite"></div><button class="primary" id="nextQ" disabled>Siguiente</button></div>
+ <div id="quizResult" class="result hidden"></div>
+ <div class="reflection"><strong>Para conversar</strong><p>¿Qué tipo de demanda suele desplazar tus actividades importantes, aunque no sea realmente prioritaria?</p></div>
+</section>
+
+<section class="panel hidden" id="matriz">
+ <h2>Desafío de prioridades</h2><p class="lead">Clasifica cada tarjeta en el cuadrante que mejor encaja con el contexto descrito. Algunas decisiones requieren valorar impacto y plazo, no solo la palabra “urgente”.</p>
+ <div class="challengebar"><span>Tiempo: <strong id="timer">02:00</strong></span><span>Clasificadas: <strong id="score">0/8</strong></span><button class="secondary" id="startMatrix">Comenzar reto</button><button class="secondary" id="restartMatrix">Reiniciar</button></div>
+ <div class="split"><div class="brief"><strong>Cómo jugar</strong><p>Arrastra una tarjeta al cuadrante o tócala y después selecciona el cuadrante. Si una clasificación no encaja, recibirás una pista y podrás intentarlo de nuevo.</p></div><div class="brief"><strong>Clave de análisis</strong><p>La urgencia habla de presión o proximidad. La importancia depende de su relación con la misión, los roles y los resultados prioritarios.</p></div></div>
+ <h3 style="margin-top:18px">Tarjetas de tareas · selecciona o arrastra</h3>
+ <div class="taskbank" id="taskBank"></div>
+ <h3>Agenda · suelta cada tarjeta aquí</h3>
+ <div class="matrix">
+  <div class="quad" data-q="q1"><h3>QI · CRISIS</h3><p>Importante y urgente</p></div>
+  <div class="quad q2" data-q="q2"><h3>QII · PREVENCIÓN</h3><p>Importante y no urgente</p></div>
+  <div class="quad q3" data-q="q3"><h3>QIII · INTERRUPCIONES</h3><p>Urgente y no importante</p></div>
+  <div class="quad" data-q="q4"><h3>QIV · DESPERDICIO</h3><p>No urgente y no importante</p></div>
+ </div>
+ <div class="feedback" id="matrixFeedback" aria-live="polite">Pulsa “Comenzar reto” para activar el contador.</div>
+ <div id="matrixDebrief" class="result hidden"></div>
+ <div class="reflection"><strong>Debrief del grupo</strong><p>¿Qué tarea parece urgente porque alguien la pide con insistencia? ¿Qué bloque de QII habría que proteger para evitar que una crisis se repita?</p></div>
+</section>
+
+<section class="panel hidden" id="asertividad">
+ <h2>Simulador de interrupciones</h2><p class="lead">Seis situaciones realistas de trabajo. No se premia decir NO siempre: se valora discernir, escuchar, proteger el compromiso y proponer alternativas viables.</p>
+ <div class="scenarioCount"><span id="sCounter">SITUACIÓN 1 DE 6</span><span id="sScore">Puntuación: 0</span></div>
+ <div class="progress"><div id="assertProgress"></div></div>
+ <div id="assertArea"><div class="scenario"><h3 id="sTitle"></h3><p id="sBody"></p><div class="hint" id="sHint"></div><div class="choices" id="sChoices"></div></div><div class="feedback" id="sFeedback" aria-live="polite"></div><button class="primary" id="nextS" disabled>Siguiente situación</button></div>
+ <div id="assertResult" class="result hidden"></div>
+ <div class="reflection"><strong>Reflexión final</strong><p>¿Cómo puedes expresar un límite de forma respetuosa sin abandonar tu responsabilidad con el equipo?</p></div>
+</section>
+</main>
+<footer>Hábito 3 · Stephen R. Covey · Material didáctico · EAE Business School Barcelona</footer>
+<script>
+const $=id=>document.getElementById(id);
+const shuffle=a=>{const x=[...a];for(let i=x.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[x[i],x[j]]=[x[j],x[i]];}return x;};
+const tabs=[...document.querySelectorAll('.tab')],panels=[...document.querySelectorAll('.panel')];
+tabs.forEach(b=>b.addEventListener('click',()=>{tabs.forEach(x=>x.classList.toggle('active',x===b));panels.forEach(p=>p.classList.toggle('hidden',p.id!==b.dataset.tab));if(b.dataset.tab==='matriz'&&!matrixReady){initMatrix();matrixReady=true;}}));
+
+const quizBase=[
+ {q:'Estás preparando un análisis para una reunión importante de mañana. Entra una llamada de un manager que no ha indicado el motivo. ¿Qué sueles hacer?',a:[
+  {t:'Contesto y dejo que la conversación marque el tiempo; quizá sea algo que no puede esperar.',v:0},
+  {t:'Reviso si hay un plazo o una decisión bloqueada; si no, respondo después del bloque.',v:2},
+  {t:'No respondo nunca durante el trabajo concentrado, sin comprobar si existe una incidencia.',v:1}]},
+ {q:'Recibes un correo con “URGENTE” en el asunto, pero el mensaje no explica el impacto ni la fecha límite. ¿Qué haces?',a:[
+  {t:'Lo atiendo primero para quitarlo de la bandeja.',v:0},
+  {t:'Pregunto qué decisión depende de mi respuesta y para cuándo la necesita.',v:2},
+  {t:'Lo dejo para el final del día sin avisar ni confirmar el plazo.',v:1}]},
+ {q:'Tienes una meta de desarrollo profesional que no vence esta semana. ¿Cómo suele entrar en tu agenda?',a:[
+  {t:'La convierto en un bloque concreto, aunque sea pequeño, y la reviso al planificar la semana.',v:2},
+  {t:'La avanzo solo cuando termino todas las demandas inmediatas.',v:0},
+  {t:'La mantengo como intención, pero todavía no decido cuándo hacerla.',v:1}]},
+ {q:'Te invitan a una reunión que coincide con un bloque reservado para preparar un proyecto. No hay agenda adjunta. ¿Cuál es tu reacción habitual?',a:[
+  {t:'Acepto; puede que sea importante aunque no conozca el objetivo.',v:0},
+  {t:'Pido el objetivo y la decisión esperada; si no requiere mi presencia, propongo otra vía o franja.',v:2},
+  {t:'Rechazo la invitación sin explicar el compromiso que estoy protegiendo.',v:1}]},
+ {q:'Al terminar la semana, te das cuenta de que atendiste muchas peticiones pero avanzaste poco en prevención y mejora. ¿Qué haces?',a:[
+  {t:'Ajusto el plan siguiente y reservo primero un bloque para una mejora concreta.',v:2},
+  {t:'Asumo que el trabajo es así y espero una semana con menos urgencias.',v:0},
+  {t:'Añado más tareas a la lista diaria sin cambiar cómo distribuyo el tiempo.',v:1}]}
+];
+let quizOrder=[],qi=0,qPoints=0,qCompass=0;
+function startQuiz(){quizOrder=shuffle(quizBase).map(q=>({...q,a:shuffle(q.a)}));qi=0;qPoints=0;qCompass=0;$('quizArea').classList.remove('hidden');$('quizResult').classList.add('hidden');renderQ();}
+function renderQ(){const q=quizOrder[qi];$('qCounter').textContent=`PREGUNTA ${qi+1} DE ${quizOrder.length}`;$('qText').textContent=q.q;$('quizProgress').style.width=`${qi/quizOrder.length*100}%`;$('qFeedback').textContent='';$('nextQ').disabled=true;$('nextQ').textContent=qi===quizOrder.length-1?'Ver mi perfil':'Siguiente';const box=$('qChoices');box.dataset.done='0';box.innerHTML='';q.a.forEach(a=>{const b=document.createElement('button');b.className='choice';b.textContent=a.t;b.addEventListener('click',()=>{if(box.dataset.done==='1')return;box.dataset.done='1';b.classList.add('selected');qPoints+=a.v;qCompass+=a.v===2?1:0;$('qFeedback').textContent='Respuesta registrada. Piensa qué hábito explica esa reacción; ya no se puede cambiar.';$('nextQ').disabled=false;});box.appendChild(b);});}
+$('nextQ').onclick=()=>{if(qi<quizOrder.length-1){qi++;renderQ();}else showQuiz();};
+function showQuiz(){ $('quizArea').classList.add('hidden');$('quizProgress').style.width='100%';const pct=Math.round(qPoints/10*100);let title,desc;if(qPoints>=8){title='Estratega de la brújula';desc='Sueles comprobar el impacto y reservar espacio para lo importante. Tu reto es mantener flexibilidad cuando aparece una urgencia real.';}else if(qPoints>=4){title='Receptor de urgencias ajenas';desc='Combinas decisiones proactivas con respuestas a la presión externa. Tu oportunidad está en definir filtros y proteger bloques QII.';}else{title='Apagafuegos de crisis';desc='Las demandas inmediatas parecen decidir una parte importante de tu agenda. Empieza protegiendo una prioridad QII concreta.';}$('quizResult').classList.remove('hidden');$('quizResult').innerHTML=`<div class="eyebrow">TU PERFIL ORIENTATIVO</div><strong>${title}</strong><p>${desc}</p><p><b>${pct}%</b> de respuestas alineadas con la gestión proactiva de prioridades. Este resultado es una herramienta de reflexión, no una evaluación psicológica.</p><button class="secondary" id="retryQuiz">Repetir diagnóstico con otro orden</button>`;$('retryQuiz').onclick=startQuiz;}
+startQuiz();
+
+const tasks=[
+ {id:1,t:'Un error de nómina ha dejado sin pago a 18 personas. El banco cierra la remesa en 90 minutos.',q:'q1',why:'Afecta a personas y existe un plazo externo inmediato: requiere respuesta hoy.'},
+ {id:2,t:'La dirección solicita antes de comer una cifra del dashboard. El dato no bloquea decisiones y el informe final se entrega mañana.',q:'q3',why:'La petición presiona y tiene hora cercana, pero su impacto en el resultado prioritario es bajo.'},
+ {id:3,t:'Los datos muestran rotación alta durante los primeros 90 días. Rediseñar el onboarding se revisará en el comité del próximo mes.',q:'q2',why:'Es una mejora preventiva vinculada a resultados importantes, sin presión inmediata.'},
+ {id:4,t:'Te convocan a una reunión de seguimiento en 20 minutos. El estado del proyecto está actualizado y no hay ninguna decisión pendiente.',q:'q3',why:'La invitación es inmediata, pero no parece aportar una decisión o resultado importante.'},
+ {id:5,t:'El informe de clima ya está aprobado. Dedicas otra hora a cambiar tipografías que no afectan a la lectura ni a ninguna decisión.',q:'q4',why:'No hay urgencia ni contribución relevante: el refinamiento no cambia el resultado.'},
+ {id:6,t:'Preparar el mapa de sucesión de tres posiciones críticas. La revisión formal será dentro de un trimestre.',q:'q2',why:'Es importante para la continuidad del negocio y requiere anticipación.'},
+ {id:7,t:'Un empleado comunica una posible represalia tras una queja. Hay que activar el protocolo y proteger la confidencialidad hoy.',q:'q1',why:'Existe riesgo para una persona y una obligación de actuación inmediata.'},
+ {id:8,t:'Abres repetidamente el correo y los canales sociales entre tareas, sin una consulta concreta que resolver.',q:'q4',why:'No responde a una necesidad ni contribuye a una meta: fragmenta la atención.'}
+];
+let selectedTask=null,sorted=0,seconds=120,timerID=null,gameActive=false,matrixReady=false;
+function initMatrix(){const bank=$('taskBank');bank.innerHTML='';shuffle(tasks).forEach(t=>{const b=document.createElement('button');b.className='task';b.draggable=true;b.dataset.id=t.id;b.innerHTML=`<span class="tasknum">${t.id}</span><span class="tasktext">${t.t}<span class="state">Pendiente de clasificar</span></span>`;b.addEventListener('click',()=>selectTask(t.id,b));b.addEventListener('dragstart',e=>{if(!gameActive){e.preventDefault();return;}selectedTask=t.id;e.dataTransfer.setData('text/plain',String(t.id));});bank.appendChild(b);});
+ document.querySelectorAll('.quad').forEach(q=>{q.addEventListener('dragover',e=>{if(gameActive){e.preventDefault();q.classList.add('over');}});q.addEventListener('dragleave',()=>q.classList.remove('over'));q.addEventListener('drop',e=>{e.preventDefault();q.classList.remove('over');const id=Number(e.dataTransfer.getData('text/plain'));if(id)placeTask(id,q.dataset.q);});q.addEventListener('click',()=>{if(gameActive&&selectedTask!==null)placeTask(selectedTask,q.dataset.q);});});renderTimer();}
+function selectTask(id,el){if(!gameActive)return;const b=document.querySelector(`.task[data-id="${id}"]`);if(b.classList.contains('sorted'))return;selectedTask=id;document.querySelectorAll('.task').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');$('matrixFeedback').textContent='Ahora arrastra la tarjeta o toca un cuadrante para clasificarla.';}
+function startMatrix(){if(!matrixReady){initMatrix();matrixReady=true;}if(gameActive)return;gameActive=true;selectedTask=null;$('matrixFeedback').textContent='Reto activo. Clasifica las ocho tareas.';timerID=setInterval(()=>{seconds--;renderTimer();if(seconds<=0)endMatrix(false);},1000);}
+function renderTimer(){$('timer').textContent=`${String(Math.floor(seconds/60)).padStart(2,'0')}:${String(seconds%60).padStart(2,'0')}`;}
+function placeTask(id,q){if(!gameActive)return;const task=tasks.find(t=>t.id===id);const b=document.querySelector(`.task[data-id="${id}"]`);if(!task||!b||b.classList.contains('sorted'))return;if(task.q!==q){$('matrixFeedback').textContent='No encaja del todo. Relee el impacto y el plazo; vuelve a intentarlo.';return;}b.classList.add('sorted');b.classList.remove('selected');b.draggable=false;b.querySelector('.state').textContent='Clasificada correctamente';const chip=document.createElement('span');chip.className='placedchip';chip.textContent=`${id} · ${task.t}`;document.querySelector(`.quad[data-q="${q}"]`).appendChild(chip);selectedTask=null;sorted++;$('score').textContent=`${sorted}/8`;$('matrixFeedback').textContent=task.why;if(sorted===8)endMatrix(true);}
+function endMatrix(completed){gameActive=false;clearInterval(timerID);const correct=sorted;const r=$('matrixDebrief');r.classList.remove('hidden');r.innerHTML=`<div class="eyebrow">RESULTADO DEL DESAFÍO</div><strong>${completed?'Agenda clasificada':'Tiempo finalizado'}</strong><p>Has clasificado correctamente ${correct} de 8 tareas${completed?' en el tiempo disponible':'. Puedes revisar las pendientes y analizar por qué te costaron.'}</p><p>Debate: ¿qué tareas desplazan el Cuadrante II en vuestra realidad laboral? ¿Qué criterio permitiría negociar su plazo o delegarlas?</p><button class="secondary" id="againMatrix">Repetir con las tarjetas mezcladas</button>`;$('againMatrix').onclick=resetMatrix;}
+function resetMatrix(){clearInterval(timerID);selectedTask=null;sorted=0;seconds=120;gameActive=false;$('score').textContent='0/8';$('matrixDebrief').classList.add('hidden');document.querySelectorAll('.quad').forEach(q=>{const title=q.querySelector('h3'),sub=q.querySelector('p');q.innerHTML='';q.append(title,sub);});matrixReady=false;initMatrix();matrixReady=true;$('matrixFeedback').textContent='Pulsa “Comenzar reto” para activar el contador.';renderTimer();}
+$('startMatrix').onclick=startMatrix;$('restartMatrix').onclick=resetMatrix;
+
+const scenariosBase=[
+ {title:'La revisión “para ya”',body:'Una compañera de selección te pide revisar en los próximos 20 minutos una plantilla de entrevista. No hay candidato esperando y la nueva versión se utilizará la semana próxima. Tú tienes reservado un bloque para analizar la rotación temprana.',hint:'Decide si la petición necesita interrumpir el bloque o si se puede acordar otro momento.',opts:[
+  {t:'Dejo el análisis y reviso la plantilla ahora para que la compañera pueda avanzar.',v:0,f:'Ayudar es valioso, pero no se ha confirmado una necesidad inmediata. La interrupción desplaza una tarea QII.'},
+  {t:'Le explico mi bloque y acuerdo revisarla hoy a las 16:00; le pregunto si hay algún punto que bloquee su trabajo antes.',v:3,f:'Alineas el compromiso y compruebas si existe una urgencia no visible. Límite y colaboración.'},
+  {t:'Le digo que no puedo asumir peticiones de última hora y cierro la conversación.',v:1,f:'Proteges el tiempo, pero no verificas el impacto ni propones una alternativa.'},
+  {t:'Le envío la plantilla antigua sin revisar para cumplir con la petición.',v:0,f:'Respondes rápido, pero puedes trasladar un problema de calidad al proceso.'}]},
+ {title:'El mensaje del director',body:'El director de área te escribe: “Necesito hablar contigo ahora, son cinco minutos”. Estás preparando una recomendación para un comité de mañana. No sabes de qué trata.',hint:'La importancia de la conversación todavía es desconocida: evita asumir o minimizar.',opts:[
+  {t:'Le respondo que no, porque el bloque de preparación está reservado.',v:1,f:'La prioridad importa, pero aún no has comprobado si existe una incidencia real.'},
+  {t:'Lo llamo inmediatamente y dejo el trabajo sin preguntar nada.',v:0,f:'Cedes a la señal de urgencia sin conocer el impacto.'},
+  {t:'Pregunto si hay una decisión o incidencia que deba resolverse ahora; si no, propongo una hora concreta hoy.',v:3,f:'Compruebas la urgencia real y ofreces una alternativa viable.'},
+  {t:'Le digo que lo atiendo después de la reunión de mañana.',v:0,f:'Pospones sin conocer la necesidad y quizá retrasas una decisión que sí importa.'}]},
+ {title:'La petición de apoyo del equipo',body:'Un manager te pide que prepares parte de su presentación para mañana. Su equipo debe presentar resultados, pero el manager aún no ha definido qué datos necesita. Tú tienes una entrega de cumplimiento que vence hoy.',hint:'Hay una necesidad de apoyo, pero falta concretar el alcance y la fecha real.',opts:[
+  {t:'Acepto hacer la presentación completa; el equipo necesita apoyo.',v:0,f:'Asumes una tarea amplia sin delimitar el compromiso ni proteger la entrega de hoy.'},
+  {t:'Le explico el vencimiento de cumplimiento, pregunto qué parte bloquea al equipo y ofrezco 20 minutos para definir el enfoque después de entregar.',v:3,f:'Aclaras el alcance, proteges un compromiso crítico y ayudas a desbloquear el trabajo.'},
+  {t:'Le digo que eso corresponde a su equipo y que no es mi responsabilidad.',v:1,f:'Mantienes el límite, pero pierdes la oportunidad de colaborar de forma acotada.'},
+  {t:'Le pido que me mande todo y ya veré si puedo hacerlo al final del día.',v:1,f:'Dejas una expectativa abierta y el conflicto de prioridades sin resolver.'}]},
+ {title:'La reunión sin agenda',body:'Te convocan con poca antelación a una reunión de seguimiento. Coincide con el bloque que habías reservado para preparar el mapa de sucesión. El estado del proyecto está actualizado y no tienes claro qué decisión esperan de ti.',hint:'No toda reunión es una interrupción: primero identifica el resultado esperado y tu aportación.',opts:[
+  {t:'Acepto sin preguntar para que no interpreten que no colaboro.',v:0,f:'La disponibilidad sustituye al criterio y deja la prioridad sin protección.'},
+  {t:'Solicito el objetivo, la decisión y los asistentes necesarios; propongo enviar mi actualización por escrito si no se requiere mi intervención.',v:3,f:'Compruebas la necesidad de presencia y ofreces una alternativa eficiente.'},
+  {t:'Rechazo la invitación y no respondo más.',v:1,f:'Proteges el bloque, pero no gestionas la expectativa ni la relación.'},
+  {t:'Asisto, pero continúo trabajando en el portátil durante la reunión.',v:0,f:'Fragmentas la atención y reduces la calidad de ambas actividades.'}]},
+ {title:'El informe “ASAP”',body:'Un responsable de área solicita “lo antes posible” un análisis de absentismo. La entrega no tiene fecha formal y se utilizará en una revisión dentro de dos semanas. Tú estás cerrando un informe de cumplimiento que debe salir hoy.',hint:'La palabra “ASAP” no sustituye un acuerdo de plazo ni define prioridad por sí sola.',opts:[
+  {t:'Cambio de tarea y preparo el análisis de absentismo para hoy.',v:0,f:'Aceptas una fecha implícita y desplazas un compromiso con plazo definido.'},
+  {t:'Pregunto cuándo se tomará la decisión, qué nivel de detalle necesita y confirmo una fecha compatible con el cierre de hoy.',v:3,f:'Transformas una urgencia imprecisa en alcance y plazo acordados.'},
+  {t:'Respondo que no puedo y que lo pida a otra persona.',v:1,f:'Pones un límite, pero sin comprender necesidad ni negociar alcance.'},
+  {t:'Le envío un extracto sin validar para responder cuanto antes.',v:0,f:'La rapidez puede provocar errores y decisiones basadas en datos incompletos.'}]},
+ {title:'La conversación de una persona del equipo',body:'Una persona te pide hablar en privado sobre una situación difícil con su manager. Tienes un bloque de planificación, pero no sabes si existe riesgo inmediato o si necesita ordenar lo ocurrido.',hint:'La dimensión humana importa: no conviertas la planificación en una barrera para escuchar.',opts:[
+  {t:'Le digo que reserve una cita para la próxima semana; hoy tengo el día completo.',v:0,f:'La planificación no debe cerrar la puerta a una necesidad humana potencialmente importante.'},
+  {t:'Le ofrezco unos minutos para entender si hay riesgo o una fecha límite; si puede esperar, acordamos un espacio privado suficiente hoy o mañana.',v:3,f:'Escuchas, evalúas la urgencia humana y acuerdas el espacio adecuado.'},
+  {t:'Abandono todo el bloque y mantengo una conversación sin delimitar tiempo ni siguiente paso.',v:1,f:'La escucha importa, pero conviene acordar un espacio y un siguiente paso claros.'},
+  {t:'Le pido que envíe el problema por correo para revisarlo cuando pueda.',v:0,f:'Trasladas una conversación sensible a un canal que quizá no sea apropiado.'}]}
+];
+let scenarioOrder=[],si=0,aPoints=0,aChosen=0;
+function startAssert(){scenarioOrder=shuffle(scenariosBase).map(s=>({...s,opts:shuffle(s.opts)}));si=0;aPoints=0;aChosen=0;$('assertResult').classList.add('hidden');$('assertArea').classList.remove('hidden');renderS();}
+function renderS(){const s=scenarioOrder[si];$('sCounter').textContent=`SITUACIÓN ${si+1} DE ${scenarioOrder.length}`;$('sScore').textContent=`Puntuación: ${aPoints}`;$('assertProgress').style.width=`${si/scenarioOrder.length*100}%`;$('sTitle').textContent=s.title;$('sBody').textContent=s.body;$('sHint').textContent=s.hint;$('sFeedback').textContent='';$('nextS').disabled=true;$('nextS').textContent=si===scenarioOrder.length-1?'Ver resultado':'Siguiente situación';const box=$('sChoices');box.dataset.done='0';box.innerHTML='';s.opts.forEach(o=>{const b=document.createElement('button');b.className='choice';b.textContent=o.t;b.addEventListener('click',()=>{if(box.dataset.done==='1')return;box.dataset.done='1';b.classList.add('selected');aPoints+=o.v;aChosen++;$('sScore').textContent=`Puntuación: ${aPoints}`;$('sFeedback').textContent=o.f;$('nextS').disabled=false;});box.appendChild(b);});}
+$('nextS').onclick=()=>{if(si<scenarioOrder.length-1){si++;renderS();}else showAssertResult();};
+function showAssertResult(){$('assertArea').classList.add('hidden');$('assertProgress').style.width='100%';const r=$('assertResult');r.classList.remove('hidden');let pct=Math.round(aPoints/18*100);let head=pct>=80?'Buena gestión de límites y prioridades':pct>=55?'Criterio en desarrollo':'Oportunidad para practicar respuestas asertivas';r.innerHTML=`<div class="eyebrow">CIERRE DEL SIMULADOR</div><strong>${head}</strong><p>Puntuación orientativa: ${aPoints}/18 (${pct}%). Este ejercicio no mide una competencia profesional: ayuda a discutir cómo equilibrar compromisos, urgencias y relaciones.</p><p>Patrón a observar: ¿preguntaste por el impacto, protegiste la prioridad y ofreciste una alternativa concreta?</p><button class="secondary" id="againAssert">Volver a practicar con otro orden</button>`;$('againAssert').onclick=startAssert;}
+startAssert();
+function openTab(n){const b=tabs.find(t=>t.dataset.tab===n);if(b&&!b.classList.contains('active'))b.click();}
+tabs.forEach(b=>b.addEventListener('click',()=>{try{history.replaceState(null,'','#'+b.dataset.tab)}catch(e){}window.scrollTo(0,0)}));
+window.addEventListener('hashchange',()=>openTab(location.hash.slice(1)));openTab(location.hash.slice(1));
+</script>
+</body>
+</html>
